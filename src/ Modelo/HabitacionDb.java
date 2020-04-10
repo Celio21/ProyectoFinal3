@@ -35,7 +35,7 @@ public class HabitacionDb {
                     + "','" + hb.getCaracteristicas()
                     + "','" + hb.getPrecioDiario()
                     + "','" + hb.getEstado()
-                    + "','" + hb.getTipo_habitacion()
+                    + "','" + hb.getTipo_habitacion(
                     + "')");
 
             sentencia.close();
@@ -83,6 +83,30 @@ public class HabitacionDb {
         }
 
         return ab;
+    }
+     public static void editarHabitacion(Habitacion hb) {
+        //metimos este método a la base de datos
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+              Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/Pfinal", "root", "root");
+            System.out.print("Conexion establecida!");
+            Statement sentencia = conexion.createStatement();
+            int insert = sentencia.executeUpdate("update habitacion set "
+                   + hb.getNumero()
+                    + "','" + hb.getPiso()
+                    + "','" + hb.getDescripcion()
+                    + "','" + hb.getCaracteristicas()
+                    + "','" + hb.getPrecioDiario()
+                    + "','" + hb.getEstado()
+                    + "','" + hb.getTipo_habitacion()
+                    + "')");
+
+            sentencia.close();
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.print("Error en la conexion" + ex);
+        }
     }
 
     public static void eliminar(String Numero) {
