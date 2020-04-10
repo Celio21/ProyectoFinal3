@@ -35,7 +35,7 @@ public class HabitacionDb {
                     + "','" + hb.getCaracteristicas()
                     + "','" + hb.getPrecioDiario()
                     + "','" + hb.getEstado()
-                    + "','" + hb.getTipo_habitacion(
+                    + "','" + hb.getTipo_habitacion()
                     + "')");
 
             sentencia.close();
