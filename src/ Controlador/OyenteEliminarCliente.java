@@ -5,9 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Habitacion;
-import Modelo.HabitacionDb;
-import Vista.Vilcabamba;
+import Modelo.ClientesDB;
+import Vista.vClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -16,14 +15,14 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class OyenteEliminarHabitacion implements ActionListener{
-     //llamanos las clases 
-    Vilcabamba vt;
-    HabitacionDb cest;
+public class OyenteEliminarCliente implements ActionListener{
+    //llamanos las clases 
+    vClientes vtnest;
+    ClientesDB cest;
 
-    public OyenteEliminarHabitacion(Vilcabamba vt) {
+    public OyenteEliminarCliente(vClientes vtnest) {
 
-        this.vt = vt;
+        this.vtnest = vtnest;
 
     }
 
@@ -33,9 +32,9 @@ public class OyenteEliminarHabitacion implements ActionListener{
         int resp = JOptionPane.showConfirmDialog(null, "Eliminar Datos", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (resp == JOptionPane.YES_OPTION) {
-        cest.eliminar(vt.EliminarH(null));
-        JOptionPane.showMessageDialog(null, "La Habitacion a sido eliminada de la base de datos");
-        vt.LimpiarCampos();
+        cest.eliminarCliente(vtnest.EliminarC());
+        JOptionPane.showMessageDialog(null, "El cliente a sido borrado de la base de datos");
+        vtnest.limpiarCampos();
 
          } else if (resp == JOptionPane.NO_OPTION) {
             JOptionPane.showMessageDialog(null, "Se cancelo la eliminacion");

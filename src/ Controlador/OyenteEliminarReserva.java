@@ -5,9 +5,8 @@
  */
 package Controlador;
 
-import Modelo.Habitacion;
-import Modelo.HabitacionDb;
-import Vista.Vilcabamba;
+import Modelo.reservaDB;
+import Vista.ReservaV;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -16,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class OyenteEliminarHabitacion implements ActionListener{
-     //llamanos las clases 
-    Vilcabamba vt;
-    HabitacionDb cest;
+public class OyenteEliminarReserva implements ActionListener{
+      //llamanos las clases 
+    ReservaV vt;
+    reservaDB ce;
 
-    public OyenteEliminarHabitacion(Vilcabamba vt) {
+    public OyenteEliminarReserva( ReservaV vt) {
 
         this.vt = vt;
 
@@ -33,8 +32,8 @@ public class OyenteEliminarHabitacion implements ActionListener{
         int resp = JOptionPane.showConfirmDialog(null, "Eliminar Datos", "", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if (resp == JOptionPane.YES_OPTION) {
-        cest.eliminar(vt.EliminarH(null));
-        JOptionPane.showMessageDialog(null, "La Habitacion a sido eliminada de la base de datos");
+        ce.eliminar(vt.EliminarR(null));
+        JOptionPane.showMessageDialog(null, "La reserva a sido eliminada de la base de datos");
         vt.LimpiarCampos();
 
          } else if (resp == JOptionPane.NO_OPTION) {
